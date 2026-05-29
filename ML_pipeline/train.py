@@ -13,7 +13,7 @@ load_dotenv()
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='157565',  # <--- Type your unlocked password here
+    password= os.getenv("DB_PASSWORD"), # <--- Type your unlocked password here
     database='ticket_system'
 )
 
