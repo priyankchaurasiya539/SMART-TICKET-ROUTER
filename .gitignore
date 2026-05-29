@@ -1,0 +1,8 @@
+# Exclude large machine learning binary models
+backend/app/artifacts/*.pkl
+
+# Exclude local SQLite test databases
+*.db
+
+# Exclude application environment files containing passwords
+.env
