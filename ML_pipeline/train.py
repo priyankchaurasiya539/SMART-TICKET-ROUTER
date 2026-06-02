@@ -23,15 +23,17 @@ print("Successfully connected to MySQL database!")
 try:
     df = pd.read_sql_query("SELECT * FROM customer_tickets", conn)
     print("\n--- Current Data inside MySQL ---")
+    print(df["department"].value_counts())
+    print(df["priority"].value_counts())
 
     X = df["ticket_text"]
     y_dept = df["department"]
     y_priority = df["priority"]
 
-    dept_pipeline = Pipeline([("Vectorizer" , TfidfVectorizer()) , ("Classifier" , LogisticRegression())])
+    dept_pipeline = Pipeline([("Vectorizer" , TfidfVectorizer(ngram_range=(1 , 3) , stop_words="english")) , ("Classifier" , LogisticRegression(class_weight="balanced"))])
     dept_pipeline.fit(X , y_dept)
 
-    priority_pipeline = Pipeline([("Vectorizer" , TfidfVectorizer()) , ("Classifier" , LogisticRegression())])
+    priority_pipeline = Pipeline([("Vectorizer" , TfidfVectorizer(ngram_range=(1 , 3) , stop_words="english")) , ("Classifier" , LogisticRegression(class_weight="balanced"))])
     priority_pipeline.fit(X , y_priority)
 
 
