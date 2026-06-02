@@ -17,4 +17,4 @@ smart-ticket-router/
 
 ## How to run :
 * Backend Command Block : 'uvicorn backend.app.main:app --reload'
-* Frontend Command Block : 'streamlit run frontend/app.py'
+* Frontend Command Block : 'streamlit run frontend/app.py' 
