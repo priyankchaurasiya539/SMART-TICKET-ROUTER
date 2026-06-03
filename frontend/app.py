@@ -10,7 +10,7 @@ if st.button("Route Ticket"):
         "ticket_text" : user_input
     }
     response = requests.post(url , json=data)
-    result = response.json()
+    result = response.json() 
     dept = result["department"]
     priority = result["priority"]
     st.success(f"Rooted to department : {dept}")
